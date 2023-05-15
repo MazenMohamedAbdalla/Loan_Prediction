@@ -14728,7 +14728,7 @@ All the date were provided at the time of the loan application.
 <span class="c1"># sklearn libirary imports for preprocessing, modeling, and model eavluation</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 
@@ -17982,13 +17982,14 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">model_prec</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
-<span class="n">model_rec</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
-<span class="n">model_f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">model_prec</span> <span class="o">=</span> <span class="p">(</span><span class="n">precision_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">model_rec</span> <span class="o">=</span> <span class="p">(</span><span class="n">recall_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">model_f1</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="n">model_auc</span> <span class="o">=</span> <span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span> <span class="o">*</span> <span class="mi">100</span>
 </pre></div>
 
      </div>
@@ -18001,11 +18002,11 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Metric&#39;</span><span class="p">:[</span><span class="s1">&#39;Accurracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1-Score&#39;</span><span class="p">,</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span><span class="s1">&#39;Precision&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;Value&#39;</span><span class="p">:[</span><span class="n">model_acc</span><span class="p">,</span><span class="n">model_f1</span><span class="p">,</span><span class="n">model_rec</span><span class="p">,</span><span class="n">model_prec</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Metric&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Metric&#39;</span><span class="p">:[</span><span class="s1">&#39;Accurracy&#39;</span><span class="p">,</span><span class="s1">&#39;AUC-ROC&#39;</span><span class="p">,</span><span class="s1">&#39;Precision&#39;</span><span class="p">,</span><span class="s1">&#39;F1-Score&#39;</span><span class="p">,</span><span class="s1">&#39;Recall&#39;</span><span class="p">,],</span>
+             <span class="s1">&#39;Value&#39;</span><span class="p">:[</span><span class="n">model_acc</span><span class="p">,</span> <span class="n">model_auc</span><span class="p">,</span> <span class="n">model_prec</span><span class="p">,</span> <span class="n">model_f1</span><span class="p">,</span> <span class="n">model_rec</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Metric&#39;</span><span class="p">)</span>
 <span class="n">ev</span>
 </pre></div>
 
@@ -18022,7 +18023,7 @@ Test size: 50400
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
 
 
@@ -18058,16 +18059,20 @@ Test size: 50400
       <td>53.670635</td>
     </tr>
     <tr>
-      <th>F1-Score</th>
-      <td>0.213222</td>
-    </tr>
-    <tr>
-      <th>Recall</th>
-      <td>0.515226</td>
+      <th>AUC-ROC</th>
+      <td>51.180254</td>
     </tr>
     <tr>
       <th>Precision</th>
-      <td>0.134427</td>
+      <td>51.522553</td>
+    </tr>
+    <tr>
+      <th>F1-Score</th>
+      <td>21.322192</td>
+    </tr>
+    <tr>
+      <th>Recall</th>
+      <td>13.442665</td>
     </tr>
   </tbody>
 </table>
@@ -18085,7 +18090,7 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
@@ -18129,6 +18134,25 @@ class="
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><b>Result:</b> <br>
+According to the metrics used for evaluation, it appears that the model is not performing well on the dataset. This is likely due to an imbalance in the distribution of the target variable, where only a small percentage (12.3%) of applicants are classified as having a &quot;Risk_Flag&quot; (defaulted), while the majority (87.7%) are classified as not having a risk flag. Using the weighted loss functions did not result in a significant improvement in the model's performance.</p>
+<p><b>Possible approaches to address the issue:</b></p>
+<ul>
+<li>Using techniques such as oversampling, undersampling.</li>
+<li>Feature engineering.</li>
+<li>Using other models such as decision trees, and random forests as it seems that Logistic Regression isn't the best for the dataset.</li>
+</ul>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 
