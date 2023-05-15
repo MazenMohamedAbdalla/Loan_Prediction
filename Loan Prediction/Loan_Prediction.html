@@ -14612,7 +14612,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Loan-Prediction-Based-on-Customer-Behavior">Loan Prediction Based on Customer Behavior<a class="anchor-link" href="#Loan-Prediction-Based-on-Customer-Behavior">&#182;</a></h1><h2 id="Source-and-Link:">Source and Link:<a class="anchor-link" href="#Source-and-Link:">&#182;</a></h2><p> The dataset belongs to a Hackathon organized by "Univ.AI"!! </p>
 <p><b><a href="https://www.kaggle.com/datasets/subhamjain/loan-prediction-based-on-customer-behavior">Loan Prediction Based on Customer Behavior</a></b></p>
-<h2 id="Problem-Definition:">Problem Definition:<a class="anchor-link" href="#Problem-Definition:">&#182;</a></h2><p> The goal of an organization is to foresee potential customers who may default on their loans by using past behavior data of their customers. By doing so, they intend to estimate the likelihood of new customers becoming at risk or not. <br>
+<h2 id="Problem-Definition:">Problem Definition:<a class="anchor-link" href="#Problem-Definition:">&#182;</a></h2><p> The goal of an organization is to anticipate potential defaulters for their consumer loans product by analyzing historical customer behavior data. With this information, they aim to predict which new customers are more likely to pose a risk and which ones are not. <br>
 All the date were provided at the time of the loan application.
 </p>
 <h2 id="Feature-Description:">Feature Description:<a class="anchor-link" href="#Feature-Description:">&#182;</a></h2><table>
@@ -17982,7 +17982,7 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">model_acc</span> <span class="o">=</span> <span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
@@ -18001,11 +18001,11 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Metric&#39;</span><span class="p">:[</span><span class="s1">&#39;Accurracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1-Score&#39;</span><span class="p">,</span><span class="s1">&#39;Precision&#39;</span><span class="p">],</span>
-             <span class="s1">&#39;Value&#39;</span><span class="p">:[</span><span class="n">model_acc</span><span class="p">,</span><span class="n">model_f1</span><span class="p">,</span><span class="n">model_prec</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Metric&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Metric&#39;</span><span class="p">:[</span><span class="s1">&#39;Accurracy&#39;</span><span class="p">,</span><span class="s1">&#39;F1-Score&#39;</span><span class="p">,</span><span class="s1">&#39;Recall&#39;</span><span class="p">,</span><span class="s1">&#39;Precision&#39;</span><span class="p">],</span>
+             <span class="s1">&#39;Value&#39;</span><span class="p">:[</span><span class="n">model_acc</span><span class="p">,</span><span class="n">model_f1</span><span class="p">,</span><span class="n">model_rec</span><span class="p">,</span><span class="n">model_prec</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Metric&#39;</span><span class="p">)</span>
 <span class="n">ev</span>
 </pre></div>
 
@@ -18022,7 +18022,7 @@ Test size: 50400
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
 
 
@@ -18062,6 +18062,10 @@ Test size: 50400
       <td>0.213222</td>
     </tr>
     <tr>
+      <th>Recall</th>
+      <td>0.515226</td>
+    </tr>
+    <tr>
       <th>Precision</th>
       <td>0.134427</td>
     </tr>
@@ -18081,7 +18085,7 @@ Test size: 50400
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">prediction</span><span class="p">)</span>
@@ -18123,22 +18127,6 @@ class="
 
 </div>
 
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div>
